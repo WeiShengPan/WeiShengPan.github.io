@@ -41,13 +41,17 @@
     <link href="http://yoursite.com/2017/08/23/%5BJAVA%5Dvolatile%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     <id>http://yoursite.com/2017/08/23/[JAVA]volatile关键字/</id>
     <published>2017-08-23T03:02:35.000Z</published>
-    <updated>2017-08-23T03:43:01.782Z</updated>
+    <updated>2017-08-23T09:42:46.064Z</updated>
     
     <content type="html"><![CDATA[<h1 id="volatile-关键字作用"><a href="#volatile-关键字作用" class="headerlink" title="volatile 关键字作用"></a>volatile 关键字作用</h1><p>从实践角度而言，volatile的一个重要作用就是和<strong>CAS</strong>结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
 <ol>
-<li><p>多线程主要围绕<strong>可见性</strong>和<strong>原子性</strong>两个特性而展开，使用volatile关键字修饰的变量，保证了其在多线程之间的可见性，即每次读取到volatile变量，一定是<strong>最新的数据</strong></p>
+<li><p>多线程主要围绕<strong>可见性</strong>和<strong>原子性</strong>两个特性而展开。</p>
+<ul>
+<li>原子性：原子性可以应用于除double和long之外的所有基本类型之上的简单操作。JVM可以将64位（long和double变量）的读取和写入当做两个分离的32位操作来执行，这就产生了在一个读取和写入操作中发生上下文切换，导致不同任务可能看到不正确的结果（被称为字撕裂）。使用volatile关键字就会获得原子性。</li>
+<li>可见性：volatile关键字还确保了可视性。如果一个域声明为volatile，只要对这个域产生写操作，那么所有读操作都应该看到这个修改，即便使用了缓存，volatile域会立即被写入到主存中，而读取操作就发生在主存中。而非volatile域的原子操作不必刷新到主存中去。</li>
+</ul>
 </li>
-<li><p>代码底层执行不像我们看到的高级语言Java程序这么简单，它的执行是[Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互]。现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对<strong>禁止语义重排序</strong>，当然这也一定程度上降低了代码执行效率</p>
+<li><p>代码底层执行不像我们看到的高级语言Java程序这么简单，它的执行是 [Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互] 。现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对<strong>禁止语义重排序</strong>，当然这也一定程度上降低了代码执行效率</p>
 </li>
 </ol>
 <blockquote>
