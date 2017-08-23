@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Pan</title>
+  
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2017-08-23T06:02:44.256Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Weisheng Pan</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java类型互转</title>
+    <link href="http://yoursite.com/2017/08/23/%5BJAVA%5DJava%E7%B1%BB%E5%9E%8B%E4%BA%92%E8%BD%AC/"/>
+    <id>http://yoursite.com/2017/08/23/[JAVA]Java类型互转/</id>
+    <published>2017-08-23T03:22:06.000Z</published>
+    <updated>2017-08-23T06:02:44.256Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Java类型互转"><a href="#Java类型互转" class="headerlink" title="Java类型互转"></a>Java类型互转</h1><h2 id="String和List的互转"><a href="#String和List的互转" class="headerlink" title="String和List的互转"></a>String和List的互转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//List转String</div><div class="line">String list2String = StringUtils.join(advSrcList.toArray(), &quot;;&quot;)</div><div class="line"></div><div class="line">//String转List</div><div class="line">List&lt;String&gt; string2List = Arrays.asList(domainGroupQueryReq.getQueryDomainList().split(&quot;;&quot;))</div></pre></td></tr></table></figure>
+<h2 id="int-long-float-double和String的互转"><a href="#int-long-float-double和String的互转" class="headerlink" title="int/long/float/double和String的互转"></a>int/long/float/double和String的互转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String intStr = String.valueOf(1);</div><div class="line">String longStr = String.valueOf(1L);</div><div class="line">String floatStr = String.valueOf(0.1f);</div><div class="line">String doubleStr = String.valueOf(0.1d);</div><div class="line"></div><div class="line">Integer intNum = Integer.parseInt(&quot;1&quot;);</div><div class="line">Long longNum = Long.parseLong(&quot;1&quot;);</div><div class="line">Float floatNum = Float.parseFloat(&quot;0.1&quot;);</div><div class="line">Double doubleNum = Double.parseDouble(&quot;0.1&quot;);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Java类型互转&quot;&gt;&lt;a href=&quot;#Java类型互转&quot; class=&quot;headerlink&quot; title=&quot;Java类型互转&quot;&gt;&lt;/a&gt;Java类型互转&lt;/h1&gt;&lt;h2 id=&quot;String和List的互转&quot;&gt;&lt;a href=&quot;#String和List的互转&quot;
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>volatile关键字</title>
+    <link href="http://yoursite.com/2017/08/23/%5BJAVA%5Dvolatile%E5%85%B3%E9%94%AE%E5%AD%97/"/>
+    <id>http://yoursite.com/2017/08/23/[JAVA]volatile关键字/</id>
+    <published>2017-08-23T03:02:35.000Z</published>
+    <updated>2017-08-23T03:43:01.782Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="volatile-关键字作用"><a href="#volatile-关键字作用" class="headerlink" title="volatile 关键字作用"></a>volatile 关键字作用</h1><p>从实践角度而言，volatile的一个重要作用就是和<strong>CAS</strong>结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
+<ol>
+<li><p>多线程主要围绕<strong>可见性</strong>和<strong>原子性</strong>两个特性而展开，使用volatile关键字修饰的变量，保证了其在多线程之间的可见性，即每次读取到volatile变量，一定是<strong>最新的数据</strong></p>
+</li>
+<li><p>代码底层执行不像我们看到的高级语言Java程序这么简单，它的执行是[Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互]。现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对<strong>禁止语义重排序</strong>，当然这也一定程度上降低了代码执行效率</p>
+</li>
+</ol>
+<blockquote>
+<p><strong>CAS</strong>，全称为<strong>Compare and Swap</strong>，即比较-替换。假设有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，才会将内存值修改为B并返回true，否则什么都不做并返回false。当然CAS一定要volatile变量配合，这样才能保证每次拿到的变量是主内存中最新的那个值，否则旧的预期值A对某条线程来说，永远是一个不会变的值A，只要某次CAS操作失败，永远都不可能成功。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;volatile-关键字作用&quot;&gt;&lt;a href=&quot;#volatile-关键字作用&quot; class=&quot;headerlink&quot; title=&quot;volatile 关键字作用&quot;&gt;&lt;/a&gt;volatile 关键字作用&lt;/h1&gt;&lt;p&gt;从实践角度而言，volatile的一个重要作
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2017/05/03/hello-world/"/>
+    <id>http://yoursite.com/2017/05/03/hello-world/</id>
+    <published>2017-05-03T06:21:44.237Z</published>
+    <updated>2017-05-03T06:21:44.237Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>
