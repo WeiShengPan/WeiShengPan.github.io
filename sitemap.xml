@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2017/05/03/hello-world/</loc>
+    
+    <lastmod>2017-08-23T06:36:14.569Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/tags/index.html</loc>
     
-    <lastmod>2017-08-23T06:31:23.508Z</lastmod>
+    <lastmod>2017-08-23T06:34:00.370Z</lastmod>
     
   </url>
   
@@ -19,13 +26,6 @@
     <loc>http://yoursite.com/2017/08/23/%5BJAVA%5Dvolatile%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
     
     <lastmod>2017-08-23T03:43:01.782Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/05/03/hello-world/</loc>
-    
-    <lastmod>2017-05-03T06:21:44.237Z</lastmod>
     
   </url>
   
