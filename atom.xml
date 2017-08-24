@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-23T06:02:44.256Z</updated>
+  <updated>2017-08-24T08:08:31.423Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -16,23 +16,61 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Java类型互转</title>
-    <link href="http://yoursite.com/2017/08/23/%5BJAVA%5DJava%E7%B1%BB%E5%9E%8B%E4%BA%92%E8%BD%AC/"/>
-    <id>http://yoursite.com/2017/08/23/[JAVA]Java类型互转/</id>
-    <published>2017-08-23T03:22:06.000Z</published>
-    <updated>2017-08-23T06:02:44.256Z</updated>
+    <title>线程状态</title>
+    <link href="http://yoursite.com/2017/08/24/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/"/>
+    <id>http://yoursite.com/2017/08/24/线程状态/</id>
+    <published>2017-08-24T06:57:40.000Z</published>
+    <updated>2017-08-24T08:08:31.423Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Java类型互转"><a href="#Java类型互转" class="headerlink" title="Java类型互转"></a>Java类型互转</h1><h2 id="String和List的互转"><a href="#String和List的互转" class="headerlink" title="String和List的互转"></a>String和List的互转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//List转String</div><div class="line">String list2String = StringUtils.join(advSrcList.toArray(), &quot;;&quot;)</div><div class="line"></div><div class="line">//String转List</div><div class="line">List&lt;String&gt; string2List = Arrays.asList(domainGroupQueryReq.getQueryDomainList().split(&quot;;&quot;))</div></pre></td></tr></table></figure>
-<h2 id="int-long-float-double和String的互转"><a href="#int-long-float-double和String的互转" class="headerlink" title="int/long/float/double和String的互转"></a>int/long/float/double和String的互转</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String intStr = String.valueOf(1);</div><div class="line">String longStr = String.valueOf(1L);</div><div class="line">String floatStr = String.valueOf(0.1f);</div><div class="line">String doubleStr = String.valueOf(0.1d);</div><div class="line"></div><div class="line">Integer intNum = Integer.parseInt(&quot;1&quot;);</div><div class="line">Long longNum = Long.parseLong(&quot;1&quot;);</div><div class="line">Float floatNum = Float.parseFloat(&quot;0.1&quot;);</div><div class="line">Double doubleNum = Double.parseDouble(&quot;0.1&quot;);</div></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<p>一个线程可以处于<strong>新建、就绪、阻塞、死亡</strong>四种状态之一。</p>
+<ol>
+<li>新建（new）:当线程被创建时，会短暂处于这种状态。此    时已经分配了必须的系统资源，并执行了初始化操作。此刻线程已经有资格获得CPU时间了，之后调度器将把这个线程转变为就绪(Runnable)状态或阻塞(Blocked)状态。</li>
+<li>就绪（Runnable）：在这种状态下，只要调度器把时间片分配给线程，线程就可以运行。也就是说，在任意时刻，线程可以运行也可以不运行。只要调度器能分配时间片给线程，它就可以运行，这不同于死亡（Dead）和阻塞(Blocked)状态。<a id="more"></a></li>
+<li>阻塞（Blocked）：线程能够运行，但有某个条件阻止它的运行。当线程处于阻塞状态时，调度器将忽略该线程，不会分配CPU时间片。直到线程重新进入就绪（Runnable）状态，它才有可能执行操作。</li>
+<li>死亡（Dead）：处于死亡或终止状态的线程将不再是可调度的，并且再也不会得到CPU时间片，它的任务已经结束或不再可运行。任务死亡的通常方式时run（）方法返回，但是任务的线程还可以被中断。</li>
+</ol>
+<h4 id="进入阻塞状态"><a href="#进入阻塞状态" class="headerlink" title="进入阻塞状态"></a>进入阻塞状态</h4><p>一个任务进入阻塞状态可能有一下原因：</p>
+<ul>
+<li>通过调用sleep（）使线程进入休眠状态，这种情况下，线程在指定时间内阻塞不会运行。</li>
+<li>通过调用wait（）使线程挂起，这种情况下，直到线程得到notify（）或notifyAll（）消息，线程才会进入就绪（Runnable）状态。</li>
+<li>线程在等待某个输入/输出完成</li>
+<li>线程试图在某个同步对象上调用其同步控制方法，但是另一个线程已经获取该对象锁导致对象锁不可用。</li>
+</ul>
+]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;Java类型互转&quot;&gt;&lt;a href=&quot;#Java类型互转&quot; class=&quot;headerlink&quot; title=&quot;Java类型互转&quot;&gt;&lt;/a&gt;Java类型互转&lt;/h1&gt;&lt;h2 id=&quot;String和List的互转&quot;&gt;&lt;a href=&quot;#String和List的互转&quot;
+      &lt;p&gt;一个线程可以处于&lt;strong&gt;新建、就绪、阻塞、死亡&lt;/strong&gt;四种状态之一。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;新建（new）:当线程被创建时，会短暂处于这种状态。此    时已经分配了必须的系统资源，并执行了初始化操作。此刻线程已经有资格获得CPU时间了，之后调度器将把这个线程转变为就绪(Runnable)状态或阻塞(Blocked)状态。&lt;/li&gt;
+&lt;li&gt;就绪（Runnable）：在这种状态下，只要调度器把时间片分配给线程，线程就可以运行。也就是说，在任意时刻，线程可以运行也可以不运行。只要调度器能分配时间片给线程，它就可以运行，这不同于死亡（Dead）和阻塞(Blocked)状态。
     
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="http://yoursite.com/tags/java/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Java类型互转</title>
+    <link href="http://yoursite.com/2017/08/23/%5BJAVA%5DJava%E7%B1%BB%E5%9E%8B%E4%BA%92%E8%BD%AC/"/>
+    <id>http://yoursite.com/2017/08/23/[JAVA]Java类型互转/</id>
+    <published>2017-08-23T03:22:06.000Z</published>
+    <updated>2017-08-24T08:09:07.088Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="String和List的互转"><a href="#String和List的互转" class="headerlink" title="String和List的互转"></a>String和List的互转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//List转String</div><div class="line">String list2String = StringUtils.join(advSrcList.toArray(), &quot;;&quot;)</div><div class="line"></div><div class="line">//String转List</div><div class="line">List&lt;String&gt; string2List = Arrays.asList(domainGroupQueryReq.getQueryDomainList().split(&quot;;&quot;))</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="int-long-float-double和String的互转"><a href="#int-long-float-double和String的互转" class="headerlink" title="int/long/float/double和String的互转"></a>int/long/float/double和String的互转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">String intStr = String.valueOf(1);</div><div class="line">String longStr = String.valueOf(1L);</div><div class="line">String floatStr = String.valueOf(0.1f);</div><div class="line">String doubleStr = String.valueOf(0.1d);</div><div class="line"></div><div class="line">Integer intNum = Integer.parseInt(&quot;1&quot;);</div><div class="line">Long longNum = Long.parseLong(&quot;1&quot;);</div><div class="line">Float floatNum = Float.parseFloat(&quot;0.1&quot;);</div><div class="line">Double doubleNum = Double.parseDouble(&quot;0.1&quot;);</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h3 id=&quot;String和List的互转&quot;&gt;&lt;a href=&quot;#String和List的互转&quot; class=&quot;headerlink&quot; title=&quot;String和List的互转&quot;&gt;&lt;/a&gt;String和List的互转&lt;/h3&gt;&lt;figure class=&quot;highlight plain&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;//List转String&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;String list2String = StringUtils.join(advSrcList.toArray(), &amp;quot;;&amp;quot;)&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;//String转List&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;List&amp;lt;String&amp;gt; string2List = Arrays.asList(domainGroupQueryReq.getQueryDomainList().split(&amp;quot;;&amp;quot;))&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   
@@ -41,18 +79,16 @@
     <link href="http://yoursite.com/2017/08/23/%5BJAVA%5Dvolatile%E5%85%B3%E9%94%AE%E5%AD%97/"/>
     <id>http://yoursite.com/2017/08/23/[JAVA]volatile关键字/</id>
     <published>2017-08-23T03:02:35.000Z</published>
-    <updated>2017-08-23T09:42:46.064Z</updated>
+    <updated>2017-08-24T08:08:56.052Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="volatile-关键字作用"><a href="#volatile-关键字作用" class="headerlink" title="volatile 关键字作用"></a>volatile 关键字作用</h1><p>从实践角度而言，volatile的一个重要作用就是和<strong>CAS</strong>结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
+    <content type="html"><![CDATA[<p>从实践角度而言，volatile的一个重要作用就是和<strong>CAS</strong>结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
 <ol>
-<li><p>多线程主要围绕<strong>可见性</strong>和<strong>原子性</strong>两个特性而展开。</p>
-<ul>
+<li>多线程主要围绕<strong>可见性</strong>和<strong>原子性</strong>两个特性而展开。<ul>
 <li>原子性：原子性可以应用于除double和long之外的所有基本类型之上的简单操作。JVM可以将64位（long和double变量）的读取和写入当做两个分离的32位操作来执行，这就产生了在一个读取和写入操作中发生上下文切换，导致不同任务可能看到不正确的结果（被称为字撕裂）。使用volatile关键字就会获得原子性。</li>
-<li>可见性：volatile关键字还确保了可视性。如果一个域声明为volatile，只要对这个域产生写操作，那么所有读操作都应该看到这个修改，即便使用了缓存，volatile域会立即被写入到主存中，而读取操作就发生在主存中。而非volatile域的原子操作不必刷新到主存中去。</li>
+<li>可见性：volatile关键字还确保了可视性。如果一个域声明为volatile，只要对这个域产生写操作，那么所有读操作都应该看到这个修改，即便使用了缓存，volatile域会立即被写入到主存中，而读取操作就发生在主存中。而非volatile域的原子操作不必刷新到主存中去。<a id="more"></a></li>
 </ul>
 </li>
-<li><p>代码底层执行不像我们看到的高级语言Java程序这么简单，它的执行是 [Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互] 。现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对<strong>禁止语义重排序</strong>，当然这也一定程度上降低了代码执行效率</p>
-</li>
+<li>代码底层执行不像我们看到的高级语言Java程序这么简单，它的执行是 [Java代码–&gt;字节码–&gt;根据字节码执行对应的C/C++代码–&gt;C/C++代码被编译成汇编语言–&gt;和硬件电路交互] 。现实中，为了获取更好的性能JVM可能会对指令进行重排序，多线程下可能会出现一些意想不到的问题。使用volatile则会对<strong>禁止语义重排序</strong>，当然这也一定程度上降低了代码执行效率</li>
 </ol>
 <blockquote>
 <p><strong>CAS</strong>，全称为<strong>Compare and Swap</strong>，即比较-替换。假设有三个操作数：内存值V、旧的预期值A、要修改的值B，当且仅当预期值A和内存值V相同时，才会将内存值修改为B并返回true，否则什么都不做并返回false。当然CAS一定要volatile变量配合，这样才能保证每次拿到的变量是主内存中最新的那个值，否则旧的预期值A对某条线程来说，永远是一个不会变的值A，只要某次CAS操作失败，永远都不可能成功。</p>
@@ -61,12 +97,16 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;volatile-关键字作用&quot;&gt;&lt;a href=&quot;#volatile-关键字作用&quot; class=&quot;headerlink&quot; title=&quot;volatile 关键字作用&quot;&gt;&lt;/a&gt;volatile 关键字作用&lt;/h1&gt;&lt;p&gt;从实践角度而言，volatile的一个重要作
+      &lt;p&gt;从实践角度而言，volatile的一个重要作用就是和&lt;strong&gt;CAS&lt;/strong&gt;结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;多线程主要围绕&lt;strong&gt;可见性&lt;/strong&gt;和&lt;strong&gt;原子性&lt;/strong&gt;两个特性而展开。&lt;ul&gt;
+&lt;li&gt;原子性：原子性可以应用于除double和long之外的所有基本类型之上的简单操作。JVM可以将64位（long和double变量）的读取和写入当做两个分离的32位操作来执行，这就产生了在一个读取和写入操作中发生上下文切换，导致不同任务可能看到不正确的结果（被称为字撕裂）。使用volatile关键字就会获得原子性。&lt;/li&gt;
+&lt;li&gt;可见性：volatile关键字还确保了可视性。如果一个域声明为volatile，只要对这个域产生写操作，那么所有读操作都应该看到这个修改，即便使用了缓存，volatile域会立即被写入到主存中，而读取操作就发生在主存中。而非volatile域的原子操作不必刷新到主存中去。
     
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="http://yoursite.com/tags/java/"/>
     
   </entry>
   
