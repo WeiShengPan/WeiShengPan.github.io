@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/tags/index.html</loc>
+    
+    <lastmod>2017-08-24T09:09:38.534Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/08/24/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/</loc>
+    
+    <lastmod>2017-08-24T08:15:53.112Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2017/08/23/%5BJAVA%5DJava%E7%B1%BB%E5%9E%8B%E4%BA%92%E8%BD%AC/</loc>
     
     <lastmod>2017-08-24T08:09:07.088Z</lastmod>
@@ -12,13 +26,6 @@
     <loc>http://yoursite.com/2017/08/23/%5BJAVA%5Dvolatile%E5%85%B3%E9%94%AE%E5%AD%97/</loc>
     
     <lastmod>2017-08-24T08:08:56.052Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2017/08/24/%E7%BA%BF%E7%A8%8B%E7%8A%B6%E6%80%81/</loc>
-    
-    <lastmod>2017-08-24T08:08:31.423Z</lastmod>
     
   </url>
   
