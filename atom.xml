@@ -4,9 +4,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="https://weishengpan.github.io/"/>
   <updated>2017-08-25T09:22:44.093Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>https://weishengpan.github.io/</id>
   
   <author>
     <name>Weisheng Pan</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>Java 包定义</title>
-    <link href="http://yoursite.com/posts/2127582241/"/>
-    <id>http://yoursite.com/posts/2127582241/</id>
+    <link href="https://weishengpan.github.io/posts/2127582241/"/>
+    <id>https://weishengpan.github.io/posts/2127582241/</id>
     <published>2017-08-25T08:38:54.000Z</published>
     <updated>2017-08-25T09:22:44.093Z</updated>
     
@@ -70,14 +70,14 @@
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://weishengpan.github.io/tags/JAVA/"/>
     
   </entry>
   
   <entry>
     <title>线程状态</title>
-    <link href="http://yoursite.com/posts/3971113224/"/>
-    <id>http://yoursite.com/posts/3971113224/</id>
+    <link href="https://weishengpan.github.io/posts/3971113224/"/>
+    <id>https://weishengpan.github.io/posts/3971113224/</id>
     <published>2017-08-24T06:57:40.000Z</published>
     <updated>2017-08-25T06:32:55.761Z</updated>
     
@@ -107,14 +107,14 @@
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://weishengpan.github.io/tags/JAVA/"/>
     
   </entry>
   
   <entry>
     <title>Java类型互转</title>
-    <link href="http://yoursite.com/posts/4056832773/"/>
-    <id>http://yoursite.com/posts/4056832773/</id>
+    <link href="https://weishengpan.github.io/posts/4056832773/"/>
+    <id>https://weishengpan.github.io/posts/4056832773/</id>
     <published>2017-08-23T03:22:06.000Z</published>
     <updated>2017-08-25T03:04:02.595Z</updated>
     
@@ -129,14 +129,14 @@
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://weishengpan.github.io/tags/JAVA/"/>
     
   </entry>
   
   <entry>
     <title>volatile关键字</title>
-    <link href="http://yoursite.com/posts/287179488/"/>
-    <id>http://yoursite.com/posts/287179488/</id>
+    <link href="https://weishengpan.github.io/posts/287179488/"/>
+    <id>https://weishengpan.github.io/posts/287179488/</id>
     <published>2017-08-23T03:02:35.000Z</published>
     <updated>2017-08-25T03:04:06.962Z</updated>
     
@@ -165,7 +165,7 @@
     </summary>
     
     
-      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+      <category term="JAVA" scheme="https://weishengpan.github.io/tags/JAVA/"/>
     
   </entry>
   
