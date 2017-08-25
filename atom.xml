@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-25T06:32:55.761Z</updated>
+  <updated>2017-08-25T09:16:16.133Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java 包定义</title>
+    <link href="http://yoursite.com/posts/2127582241/"/>
+    <id>http://yoursite.com/posts/2127582241/</id>
+    <published>2017-08-25T08:38:54.000Z</published>
+    <updated>2017-08-25T09:16:16.133Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="JAVA-包定义"><a href="#JAVA-包定义" class="headerlink" title="#JAVA 包定义"></a>#JAVA 包定义</h2><p>所有包都是使用jar打的，只不过目标文件的扩展名不一样。</p>
+<ul>
+<li>jar包：打成JAR包的代码，一般作为工具类，在项目中，会应用到N多JAR工具包；通常是开发时要引用通用类，打成包便于存放管理。</li>
+<li>war包：JAVA WEB工程打成war包，部署到容器中,进行发布。如果我们的服务器选择TOMCAT等轻量级服务器，一般就打出WAR包进行发布。</li>
+<li>ear包：这针对企业级项目的，实际上EAR包中包含WAR包和几个企业级项目的配置文件而已，一般服务器选择WebSphere等，都会使用EAR包。通常是EJB打成ear包。ear文件包含整个项目，内含多个ejb module（jar文件）和web module（war文件）<a id="more"></a>
+</li>
+</ul>
+<h2 id="JAVA-包结构"><a href="#JAVA-包结构" class="headerlink" title="#JAVA 包结构"></a>#JAVA 包结构</h2><h5 id="1-war包"><a href="#1-war包" class="headerlink" title="1.war包"></a>1.war包</h5><p>标准格式：index.jsp(可选) + META-INF目录 + WEB-INF目录 + 其他文件夹</p>
+<ul>
+<li>index.jsp可有可无。</li>
+<li>META-INF目录下包括一个MANIFEST.MF文件，此目录和文件在用jar工具打包时会自动生成。</li>
+<li><p>WEB-INF目录下包括classes目录，lib目录，web.xml文件，web.xml文件格式如下：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</div><div class="line">&lt;web-app version=&quot;2.4&quot; </div><div class="line">   xmlns=&quot;http://Java.sun.com/xml/ns/j2ee&quot; </div><div class="line">   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; </div><div class="line">   xsi:schemaLocation=&quot;http://java.sun.com/xml/ns/j2ee </div><div class="line">   http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd&quot;&gt;</div><div class="line">&lt;welcome-file-list&gt;</div><div class="line">   &lt;welcome-file&gt;index.jsp&lt;/welcome-file&gt;</div><div class="line">&lt;/welcome-file-list&gt;</div><div class="line">&lt;/web-app&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="2-ear包"><a href="#2-ear包" class="headerlink" title="2. ear包:"></a>2. ear包:</h5><p>标准格式：war包 + META-INF目录<br>META-INF目录下包括 MANIFEST.MF , application.xml , ibm-application-bnd.xmi , ibm-application-ext.xmi , was.policy。</p>
+<ul>
+<li><p>application.xml文件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;!DOCTYPE application PUBLIC &quot;-//Sun Microsystems, Inc.//DTD J2EE Application 1.3//EN&quot; &quot;http://java.sun.com/dtd/application_1_3.dtd&quot;&gt;</div><div class="line">  	&lt;application id=&quot;Application_ID&quot;&gt;</div><div class="line">     &lt;display-name&gt;AsiainfoBICASApplicationEAR&lt;/display-name&gt;</div><div class="line">     &lt;description&gt;This is the Asiainfo BICAS Application Server Application.&lt;/description&gt;</div><div class="line">     &lt;module id=&quot;WebModule_1&quot;&gt;</div><div class="line">        &lt;web&gt;</div><div class="line">           &lt;web-uri&gt;example.war&lt;/web-uri&gt;</div><div class="line">           &lt;context-root&gt;/abc&lt;/context-root&gt;</div><div class="line">        &lt;/web&gt;</div><div class="line">     &lt;/module&gt;</div><div class="line">  	&lt;/application&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>ibm-application-bnd.xmi文件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;applicationbnd:ApplicationBinding xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:applicationbnd=&quot;applicationbnd.xmi&quot; xmlns:common=&quot;common.xmi&quot; xmlns:application=&quot;application.xmi&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmi:id=&quot;Application_ID_Bnd&quot;&gt;</div><div class="line">&lt;appName xsi:nil=&quot;true&quot;/&gt;</div><div class="line">&lt;application href=&quot;META-INF/application.xml#Application_ID&quot;/&gt;</div><div class="line">&lt;/applicationbnd:ApplicationBinding&gt;</div></pre></td></tr></table></figure>
+</li>
+<li><p>ibm-application-ext.xmi文件：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;applicationext:ApplicationExtension xmi:version=&quot;2.0&quot; xmlns:xmi=&quot;http://www.omg.org/XMI&quot; xmlns:applicationext=&quot;applicationext.xmi&quot; xmlns:application=&quot;application.xmi&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmi:id=&quot;Application_ID_Ext&quot; sharedSessionContext=&quot;false&quot;&gt;</div><div class="line">&lt;application href=&quot;META-INF/application.xml#Application_ID&quot;/&gt;</div><div class="line">&lt;/applicationext:ApplicationExtension&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="jar包、war包、ear包的使用和区别"><a href="#jar包、war包、ear包的使用和区别" class="headerlink" title="#jar包、war包、ear包的使用和区别"></a>#jar包、war包、ear包的使用和区别</h2><h5 id="区别："><a href="#区别：" class="headerlink" title="区别："></a>区别：</h5><ul>
+<li>jar文件（扩展名为. Jar，Java Application Archive）包含Java类的普通库、资源（resources）、辅助文件（auxiliary files）等。</li>
+<li>War文件（扩展名为.War,Web Application Archive）包含全部Web应用程序。在这种情形下，一个Web应用程序被定义为单独的一组文件、类和资源，用户可以对jar文件进行封装，并把它作为小型服务程序（servlet）来访问。</li>
+<li>Ear文件（扩展名为.Ear,Enterprise Application Archive）包含全部企业应用程序。在这种情形下，一个企业应用程序被定义为多个jar文件、资源、类和Web应用程序的集合。</li>
+</ul>
+<p>每一种文件（.jar, .war, .ear）只能由应用服务器（application servers）、小型服务程序容器（servlet containers）、EJB容器（EJB containers）等进行处理。</p>
+<h5 id="war的使用："><a href="#war的使用：" class="headerlink" title="war的使用："></a>war的使用：</h5><p>如果想生成war文件，可以使用 <code>jar -cvf myproject.war *</code>,如果想查看war包中有哪些文件，可以使用 <code>jar -tf myproject.war</code>,如果想直接解压war文件，可以使用 <code>jar -xvf web1.war</code>。另外，也可使用winrar软件选择zip压缩方式，并将压缩文件后缀名改为war即可压缩生成war文件；同样使用winrar软件可以强行打开war文件，或者强行解压war文件；使用jar命令与winrar软件的区别在于前者在压缩文件的同时会生成MetaINF文件夹，内包含MANIFEST.MF文件。</p>
+<p>当你的项目在没有完全竣工的时候，不适合使用war文件，因为你的类会由于调试之类的经常改，这样来回删除、创建war文件很不爽，最好是你的项目已经完成了，不改了，那么就打个war包吧，这个时候一个war文件就相当于一个web应用程序；而jar文件就是把类和一些相关的资源封装到一个包中，便于程序中引用。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;JAVA-包定义&quot;&gt;&lt;a href=&quot;#JAVA-包定义&quot; class=&quot;headerlink&quot; title=&quot;#JAVA 包定义&quot;&gt;&lt;/a&gt;#JAVA 包定义&lt;/h2&gt;&lt;p&gt;所有包都是使用jar打的，只不过目标文件的扩展名不一样。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;jar包：打成JAR包的代码，一般作为工具类，在项目中，会应用到N多JAR工具包；通常是开发时要引用通用类，打成包便于存放管理。&lt;/li&gt;
+&lt;li&gt;war包：JAVA WEB工程打成war包，部署到容器中,进行发布。如果我们的服务器选择TOMCAT等轻量级服务器，一般就打出WAR包进行发布。&lt;/li&gt;
+&lt;li&gt;ear包：这针对企业级项目的，实际上EAR包中包含WAR包和几个企业级项目的配置文件而已，一般服务器选择WebSphere等，都会使用EAR包。通常是EJB打成ear包。ear文件包含整个项目，内含多个ejb module（jar文件）和web module（war文件）
+    
+    </summary>
+    
+    
+      <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
+    
+  </entry>
   
   <entry>
     <title>线程状态</title>
