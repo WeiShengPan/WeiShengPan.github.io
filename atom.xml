@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-08-24T10:43:06.786Z</updated>
+  <updated>2017-08-25T06:32:55.761Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://yoursite.com/posts/3971113224/"/>
     <id>http://yoursite.com/posts/3971113224/</id>
     <published>2017-08-24T06:57:40.000Z</published>
-    <updated>2017-08-24T10:43:06.786Z</updated>
+    <updated>2017-08-25T06:32:55.761Z</updated>
     
     <content type="html"><![CDATA[<p>一个线程可以处于<strong>新建、就绪、阻塞、死亡</strong>四种状态之一。</p>
 <ol>
@@ -29,7 +29,7 @@
 <li>阻塞（Blocked）：线程能够运行，但有某个条件阻止它的运行。当线程处于阻塞状态时，调度器将忽略该线程，不会分配CPU时间片。直到线程重新进入就绪（Runnable）状态，它才有可能执行操作。</li>
 <li>死亡（Dead）：处于死亡或终止状态的线程将不再是可调度的，并且再也不会得到CPU时间片，它的任务已经结束或不再可运行。任务死亡的通常方式时<code>run（）</code>方法返回，但是任务的线程还可以被中断。</li>
 </ol>
-<h4 id="进入阻塞状态"><a href="#进入阻塞状态" class="headerlink" title="进入阻塞状态"></a>进入阻塞状态</h4><p>一个任务进入阻塞状态可能有一下原因：</p>
+<h3 id="进入阻塞状态"><a href="#进入阻塞状态" class="headerlink" title="进入阻塞状态"></a>进入阻塞状态</h3><p>一个任务进入阻塞状态可能有一下原因：</p>
 <ul>
 <li>通过调用<code>sleep（）</code>使线程进入休眠状态，这种情况下，线程在指定时间内阻塞不会运行。</li>
 <li>通过调用<code>wait（）</code>使线程挂起，这种情况下，直到线程得到<code>notify（）</code>或<code>notifyAll（）</code>消息，线程才会进入就绪（Runnable）状态。</li>
@@ -57,7 +57,7 @@
     <link href="http://yoursite.com/posts/4056832773/"/>
     <id>http://yoursite.com/posts/4056832773/</id>
     <published>2017-08-23T03:22:06.000Z</published>
-    <updated>2017-08-24T10:43:06.783Z</updated>
+    <updated>2017-08-25T03:04:02.595Z</updated>
     
     <content type="html"><![CDATA[<h3 id="String和List的互转"><a href="#String和List的互转" class="headerlink" title="String和List的互转"></a>String和List的互转</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//List转String</div><div class="line">String list2String = StringUtils.join(advSrcList.toArray(), &quot;;&quot;)</div><div class="line"></div><div class="line">//String转List</div><div class="line">List&lt;String&gt; string2List = Arrays.asList(domainGroupQueryReq.getQueryDomainList().split(&quot;;&quot;))</div></pre></td></tr></table></figure>
 <a id="more"></a>
@@ -79,7 +79,7 @@
     <link href="http://yoursite.com/posts/287179488/"/>
     <id>http://yoursite.com/posts/287179488/</id>
     <published>2017-08-23T03:02:35.000Z</published>
-    <updated>2017-08-24T10:43:06.767Z</updated>
+    <updated>2017-08-25T03:04:06.962Z</updated>
     
     <content type="html"><![CDATA[<p>从实践角度而言，volatile的一个重要作用就是和<strong>CAS</strong>结合，保证了原子性，详细的可以参见java.util.concurrent.atomic包下的类，比如AtomicInteger。</p>
 <ol>
@@ -107,35 +107,6 @@
     
     
       <category term="JAVA" scheme="http://yoursite.com/tags/JAVA/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/posts/1243066710/"/>
-    <id>http://yoursite.com/posts/1243066710/</id>
-    <published>2017-05-03T06:21:44.237Z</published>
-    <updated>2017-08-24T10:43:06.785Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-    
-    </summary>
-    
-    
-      <category term="hello" scheme="http://yoursite.com/tags/hello/"/>
     
   </entry>
   

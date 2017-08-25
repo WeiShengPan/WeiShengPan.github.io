@@ -102,7 +102,7 @@
 <meta property="og:url" content="http://yoursite.com/posts/3971113224/index.html">
 <meta property="og:site_name" content="Pan">
 <meta property="og:description" content="一个线程可以处于新建、就绪、阻塞、死亡四种状态之一。  新建（new）:当线程被创建时，会短暂处于这种状态。此    时已经分配了必须的系统资源，并执行了初始化操作。此刻线程已经有资格获得CPU时间了，之后调度器将把这个线程转变为就绪(Runnable)状态或阻塞(Blocked)状态。 就绪（Runnable）：在这种状态下，只要调度器把时间片分配给线程，线程就可以运行。也就是说，在任意时刻，线">
-<meta property="og:updated_time" content="2017-08-24T10:43:06.786Z">
+<meta property="og:updated_time" content="2017-08-25T06:32:55.761Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="线程状态">
 <meta name="twitter:description" content="一个线程可以处于新建、就绪、阻塞、死亡四种状态之一。  新建（new）:当线程被创建时，会短暂处于这种状态。此    时已经分配了必须的系统资源，并执行了初始化操作。此刻线程已经有资格获得CPU时间了，之后调度器将把这个线程转变为就绪(Runnable)状态或阻塞(Blocked)状态。 就绪（Runnable）：在这种状态下，只要调度器把时间片分配给线程，线程就可以运行。也就是说，在任意时刻，线">
@@ -337,7 +337,7 @@
 <li>阻塞（Blocked）：线程能够运行，但有某个条件阻止它的运行。当线程处于阻塞状态时，调度器将忽略该线程，不会分配CPU时间片。直到线程重新进入就绪（Runnable）状态，它才有可能执行操作。</li>
 <li>死亡（Dead）：处于死亡或终止状态的线程将不再是可调度的，并且再也不会得到CPU时间片，它的任务已经结束或不再可运行。任务死亡的通常方式时<code>run（）</code>方法返回，但是任务的线程还可以被中断。</li>
 </ol>
-<h4 id="进入阻塞状态"><a href="#进入阻塞状态" class="headerlink" title="进入阻塞状态"></a>进入阻塞状态</h4><p>一个任务进入阻塞状态可能有一下原因：</p>
+<h3 id="进入阻塞状态"><a href="#进入阻塞状态" class="headerlink" title="进入阻塞状态"></a>进入阻塞状态</h3><p>一个任务进入阻塞状态可能有一下原因：</p>
 <ul>
 <li>通过调用<code>sleep（）</code>使线程进入休眠状态，这种情况下，线程在指定时间内阻塞不会运行。</li>
 <li>通过调用<code>wait（）</code>使线程挂起，这种情况下，直到线程得到<code>notify（）</code>或<code>notifyAll（）</code>消息，线程才会进入就绪（Runnable）状态。</li>
@@ -461,7 +461,7 @@
             
               <a href="/archives/">
             
-                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -474,7 +474,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -533,7 +533,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#进入阻塞状态"><span class="nav-number">1.</span> <span class="nav-text">进入阻塞状态</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#进入阻塞状态"><span class="nav-number">1.</span> <span class="nav-text">进入阻塞状态</span></a></li></ol></div>
             
 
           </div>
@@ -627,6 +627,8 @@
   
 
 
+  
+
 
 
 
@@ -654,6 +656,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
